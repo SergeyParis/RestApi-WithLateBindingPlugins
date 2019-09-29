@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TestCommon.Contracts;
 using TestCommon.Domain;
 
@@ -23,5 +24,9 @@ namespace ServicePlugin.Impl
             _repo.TryGetValue(id, out var data);
             return data;
         }
+
+        public async Task<Client> GetAsync(int id) => await Task.Factory.StartNew(() => Get(id));
+        
+        public async Task SaveAsync(Client data) => await Task.Factory.StartNew(() => Save(data));
     }
 }

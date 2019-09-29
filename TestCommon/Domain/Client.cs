@@ -41,5 +41,10 @@ namespace TestCommon.Domain
                    Prof == external.Prof &&
                    Stage == external.Stage;
         }
+
+        public Client SetAge(int age)
+        {
+            return new Client(Id, age, INN, Name, Prof, Stage);
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace TestRESTService.Contracts
 
         public string Name { get; set; }
         
-        public string Prof { get; }
+        public string Prof { get; set; }
 
         public int Stage { get; set; }
     }

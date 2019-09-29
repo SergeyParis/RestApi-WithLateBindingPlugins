@@ -1,9 +1,11 @@
+using System.Threading.Tasks;
+
 namespace TestCommon.Contracts
 {
     public interface IRepository<T>
     {
-        void Save(T data);
+        Task SaveAsync(T data);
 
-        T Get(int id);
+        Task<T> GetAsync(int id);
     }
 }

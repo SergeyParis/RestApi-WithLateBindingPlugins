@@ -13,7 +13,8 @@ namespace TestRESTService.Mappers
             Age = data.Age,
             Name = data.Name,
             Stage = data.Stage,
-            INN = data.INN
+            INN = data.INN,
+            Prof = data.Prof
         };
     }
 }

@@ -29,7 +29,7 @@ namespace TestRESTService
             services.AddControllers();
             services.AddPlugins(new []
             {
-                @".\..\ServicePlugin\bin\Debug\netcoreapp3.0\ServicePlugin.dll"
+                new PluginInfo { ProjectName = "ServicePlugin" } 
             });
         }
 

@@ -10,11 +10,11 @@ namespace TestRESTService.Helpers
 {
     public static class PluginsLoader
     {
-        public static void AddPlugins(this IServiceCollection serviceCollection, IEnumerable<string> pluginsPath)
+        public static void AddPlugins(this IServiceCollection serviceCollection, IEnumerable<PluginInfo> plugins)
         {
-            foreach (var pluginPath in pluginsPath)
+            foreach (var pluginPath in plugins)
             {
-                RegisterOneGetAssembly(serviceCollection, pluginPath);
+                RegisterOneGetAssembly(serviceCollection, GetFullPath(pluginPath.ProjectName, pluginPath.RelativePath));
             }
         }
 
@@ -36,5 +36,8 @@ namespace TestRESTService.Helpers
         }
 
         private static string GenericName(this string name) => name.Split("`").First();
+
+        private static string GetFullPath(string projectName, string relativePath) =>
+            $".\\{relativePath}..\\{projectName}\\bin\\Debug\\netcoreapp3.0\\{projectName}.dll";
     }
 }

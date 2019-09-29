@@ -1,11 +1,11 @@
-using TestCommon.Domain;
+using System.Threading.Tasks;
 
 namespace TestCommon.Contracts
 {
     public interface IPlugin<T>
     {
-        T GetClient(int id);
+        Task<T> GetClientAsync(int id);
 
-        void UpdateClient(T data);
+        Task UpdateClientAsync(T data);
     }
 }

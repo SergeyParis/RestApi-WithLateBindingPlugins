@@ -4,7 +4,7 @@
       "TestRESTService": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "clients",
+      "launchUrl": "clients/1",
       "applicationUrl": "https://localhost:5001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Staging"
