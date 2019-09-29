@@ -1,17 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
-using Microsoft.Extensions.Options;
 using TestRESTService.Helpers;
 
 namespace TestRESTService
@@ -32,7 +23,7 @@ namespace TestRESTService
             
             services.AddPlugins(new []
             {
-                new PluginInfo { ProjectName = "ServicePlugin" } 
+                "ServicePlugin"
             });
         }
 
@@ -42,6 +33,7 @@ namespace TestRESTService
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                PluginsLoader.UseDebug();
             }
             
             app.UseHttpsRedirection();

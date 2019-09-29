@@ -3,4 +3,4 @@
 **/.idea
 **/*.sln.DotSettings.user
 *.DotSettings
-
+artifacts/_debug/
