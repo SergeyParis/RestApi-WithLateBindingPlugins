@@ -1,8 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRESTService", "TestRESTService\TestRESTService.csproj", "{69093370-807A-486F-BBCB-D90A9333E846}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicePlugin", "ServicePlugin\ServicePlugin.csproj", "{C530B7C1-2F4B-4C6C-9CD5-9D9C5B2FA3AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCommon", "TestCommon\TestCommon.csproj", "{F2F03BCD-4BF3-4522-B583-F201AFBDB91C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69093370-807A-486F-BBCB-D90A9333E846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69093370-807A-486F-BBCB-D90A9333E846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69093370-807A-486F-BBCB-D90A9333E846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69093370-807A-486F-BBCB-D90A9333E846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C530B7C1-2F4B-4C6C-9CD5-9D9C5B2FA3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C530B7C1-2F4B-4C6C-9CD5-9D9C5B2FA3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C530B7C1-2F4B-4C6C-9CD5-9D9C5B2FA3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C530B7C1-2F4B-4C6C-9CD5-9D9C5B2FA3AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2F03BCD-4BF3-4522-B583-F201AFBDB91C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2F03BCD-4BF3-4522-B583-F201AFBDB91C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2F03BCD-4BF3-4522-B583-F201AFBDB91C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2F03BCD-4BF3-4522-B583-F201AFBDB91C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
