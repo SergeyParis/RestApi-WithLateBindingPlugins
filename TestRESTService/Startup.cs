@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TestRESTService.Helpers;
 
 namespace TestRESTService
 {
@@ -26,6 +27,10 @@ namespace TestRESTService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddPlugins(new []
+            {
+                @".\..\ServicePlugin\bin\Debug\netcoreapp3.0\ServicePlugin.dll"
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
