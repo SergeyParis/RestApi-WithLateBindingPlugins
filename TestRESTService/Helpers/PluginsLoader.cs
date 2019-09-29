@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using TestCommon.Contracts;
 using TestCommon.Domain;
@@ -30,8 +31,9 @@ namespace TestRESTService.Helpers
             {
                 var @interface = plugin.GetInterfaces().First(x => x.Name.GenericName() == typeof(IPlugin<>).Name.GenericName());
 
-                var instance = Activator.CreateInstance(plugin);
-                serviceCollection.Add(new ServiceDescriptor(@interface,  instance));
+                //var instance = Activator.CreateInstance(plugin);
+                //serviceCollection.Add(new ServiceDescriptor(@interface, instance));
+                serviceCollection.Add(ServiceDescriptor.Singleton(@interface, plugin));
             }
         }
 

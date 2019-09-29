@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
+using Microsoft.Extensions.Options;
 using TestRESTService.Helpers;
 
 namespace TestRESTService
@@ -27,6 +29,7 @@ namespace TestRESTService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            
             services.AddPlugins(new []
             {
                 new PluginInfo { ProjectName = "ServicePlugin" } 
@@ -40,7 +43,7 @@ namespace TestRESTService
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
