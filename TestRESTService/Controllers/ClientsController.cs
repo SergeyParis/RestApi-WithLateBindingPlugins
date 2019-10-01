@@ -30,7 +30,7 @@ namespace TestRESTService.Controllers
         public async Task<IActionResult> Get(int id)
         {
             _logger.LogDebug("Start handle request [clients/{id} | get]");
-            var result = (await _clientPlugin.GetClientAsync(id))?.Map();
+            var result = (await _clientPlugin.GetAsync(id))?.Map();
 
             if (result == null)
             {
@@ -46,7 +46,7 @@ namespace TestRESTService.Controllers
         public async Task<IActionResult> Post([FromBody]ClientDto dto)
         {
             _logger.LogDebug("Start handle request [clients/ | post]");
-            await _clientPlugin.UpdateClientAsync(dto.Map());
+            await _clientPlugin.UpdateAsync(dto.Map());
             
             _logger.LogDebug("Finish handle request with OK status [clients/ | post]");
             return Ok();
@@ -54,16 +54,16 @@ namespace TestRESTService.Controllers
 
         [HttpPost]
         [Route("{id}/addAge")]
-        public async Task<IActionResult> AddAge(int id) => await SetAge(id, 1);
+        public async Task<IActionResult> AddAge(int id) => await AddAge(id, 1);
         
         [HttpPost]
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Route("{id}/addAge/{count}")]
-        public async Task<IActionResult> SetAge(int id, int count)
+        public async Task<IActionResult> AddAge(int id, int count)
         {
             _logger.LogDebug($"Start handle request [clients/{{id}}/addAge/ | post]");
-            var client = await _clientPlugin.GetClientAsync(id);
+            var client = await _clientPlugin.GetAsync(id);
 
             if (client == null)
             {
@@ -71,12 +71,10 @@ namespace TestRESTService.Controllers
                 return BadRequest();
             }
 
-            client = client.SetAge(client.Age + count);
-            await _clientPlugin.UpdateClientAsync(client);
+            await _clientPlugin.UpdateAsync(client.SetAge(client.Age + count));
             
-            var result = (await _clientPlugin.GetClientAsync(id)).Map();
             _logger.LogDebug($"Finish handle request with OK status [clients/{{id}}/addAge/ | post]");
-            return Ok(result);
+            return Ok(client.Map());
         }
     }
 }

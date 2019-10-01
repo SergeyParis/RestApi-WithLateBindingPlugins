@@ -4,8 +4,8 @@ namespace TestCommon.Contracts
 {
     public interface IPlugin<T>
     {
-        Task<T> GetClientAsync(int id);
+        Task<T> GetAsync(int id);
 
-        Task UpdateClientAsync(T data);
+        Task UpdateAsync(T data);
     }
 }

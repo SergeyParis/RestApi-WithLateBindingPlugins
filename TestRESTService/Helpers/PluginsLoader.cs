@@ -28,16 +28,13 @@ namespace TestRESTService.Helpers
             var assembly = Assembly.LoadFrom(path);
 
             var plugins = assembly.GetTypes().Where(x =>
-                x.GetInterfaces().Select(@interface => @interface.Name.GenericName())
+                x.GetInterfaces().Select(contract => contract.Name.GenericName())
                     .Contains(typeof(IPlugin<>).Name.GenericName()));
 
             foreach (var plugin in plugins)
-            {
-                var @interface = plugin.GetInterfaces().First(x => x.Name.GenericName() == typeof(IPlugin<>).Name.GenericName());
-
-                //var instance = Activator.CreateInstance(plugin);
-                //serviceCollection.Add(new ServiceDescriptor(@interface, instance));
-                serviceCollection.Add(ServiceDescriptor.Singleton(@interface, plugin));
+            {   
+                var contract = plugin.GetInterfaces().First(x => x.Name.GenericName() == typeof(IPlugin<>).Name.GenericName());
+                serviceCollection.Add(ServiceDescriptor.Singleton(contract, plugin));
             }
         }
 

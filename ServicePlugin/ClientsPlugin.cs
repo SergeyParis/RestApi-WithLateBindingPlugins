@@ -17,13 +17,13 @@ namespace ServicePlugin
             _repository.SaveAsync(new Client(1,31,123456789,"Client Test","C# Developer",0)).Wait();
         }
 
-        public async Task<Client> GetClientAsync(int id)
+        public async Task<Client> GetAsync(int id)
         {
             _logger.LogDebug($"Invoked IPlugin<Client>.GetClientAsync with id={id}");
             return await _repository.GetAsync(id);
         }
 
-        public async Task UpdateClientAsync(Client data)
+        public async Task UpdateAsync(Client data)
         { 
             _logger.LogDebug($"Invoked IPlugin<Client>.UpdateClientAsync with data which has id={data.Id}");
             await _repository.SaveAsync(data);
